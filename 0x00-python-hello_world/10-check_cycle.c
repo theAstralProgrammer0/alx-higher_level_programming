@@ -11,28 +11,25 @@
  * Return: 1 if cycle exists, 0 otherwise
  */
 
+
 int check_cycle(listint_t *list)
 {
 	listint_t *tortoise = NULL;
 	listint_t *hare = NULL;
 
-	if (!list || !(list->next))
+	if (list == NULL || list->next == NULL)
 		return (0);
 
-	tortoise = hare = list;
+	tortoise = list;
+	hare = list->next;
 
-	do {
-		if (tortoise->next && hare->next->next)
-		{
-			tortoise = tortoise->next;
-			hare = hare->next->next;
-		}
-		else
-		{
-			return (0);
-		}
-	} while (tortoise != hare);
+	while (hare != NULL && hare->next != NULL)
+	{
+		if (tortoise == hare)
+			return (1);
 
-	return (1);
+		tortoise = tortoise->next;
+		hare = hare->next->next;
+	}
+	return (0);
 }
-

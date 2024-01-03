@@ -3,3 +3,5 @@ main.py
 10-linked_lists.c
 1000-check_cycle.c
 cycle
+__pycache__
+

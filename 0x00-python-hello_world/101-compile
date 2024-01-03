@@ -1,14 +1,2 @@
-#!/usr/bin/python3
-import os
-import subprocess
-
-pyfile = os.getenv('PYFILE')
-
-if pyfile:
-    output = f"{os.path.splitext(os.path.basename(pyfile))[0]}.pyc"#f"{os.path.splitext(pyfile)[0]}.pyc"
-    subprocess.run(['python3', '-m', 'compileall', pyfile, '-b'])
-    os.rename(os.path.join(os.path.dirname(pyfile), '__pycache__', output),
-              os.path.join(os.getcwd(), output))
-    print(f"Compiling {pyfile}. Output file name: {output}")
-else:
-    print(f"Error compiling file. $PYFILE env not set")
+#!/bin/bash
+python3 -m compileall -b "$PYFILE"

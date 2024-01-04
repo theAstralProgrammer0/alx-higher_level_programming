@@ -32,7 +32,7 @@ listint_t *insert_node(listint_t **head, int number)
 
 	while (current->n < number && current->next->n < number)
 	{
-		if (current->next == NULL)
+		if (current->next->next == NULL)
 			return (add_nodeint_end(head, number));
 		current = current->next;
 		++count;

@@ -29,10 +29,10 @@ int main(void)
     insert_node(&head, 5);
    insert_node(&head, -32);
    insert_node(&head, 5432);
-/*   insert_node(&head, 101);
- *   insert_node(&head, 47);
- *   insert_node(&head, 6405);
-*/
+   insert_node(&head, 101);
+  insert_node(&head, 47);
+    insert_node(&head, 6405);
+
     print_listint(head);
 
     free_listint(head);

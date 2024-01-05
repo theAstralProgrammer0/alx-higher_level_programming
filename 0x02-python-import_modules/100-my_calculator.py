@@ -2,28 +2,19 @@
 import sys
 from calculator_1 import add, sub, mul, div
 
-
 def main():
-    length = len(sys.argv)
-    if not length == 4:
-        print("Usage: ./100-my_calculator.py <a> <oprterator> <b>")
+    if len(sys.argv) != 4:
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
 
-    oprd_1 = int(sys.argv[1])
-    oprt = sys.argv[2]
-    oprd_2 = int(sys.argv[3])
-    ops = ["+", "-", "*", "/"]
-
-    if oprt == ops[0]:
-        print("{} + {} = {}".format(oprd_1, oprd_2, add(oprd_1, oprd_2)))
-    elif oprt == ops[1]:
-        print("{} - {} = {}".format(oprd_1, oprd_2, sub(oprd_1, oprd_2)))
-    elif oprt == ops[2]:
-        print("{} * {} = {}".format(oprd_1, oprd_2, mul(oprd_1, oprd_2)))
-    elif oprt == ops[3]:
-        print("{} / {} = {}".format(oprd_1, oprd_2, div(oprd_1, oprd_2)))
+    a, op, b = sys.argv[1:4]
+    ops = {"+" : add, "-" : sub, "*" : mul, "/" : div}
+    
+    if op in ops:
+        result = ops[sys.argv[2]](int(a), int(b))
+        print(f"{a} {op} {b} = {result}")
     else:
-        print("Unknown oprterator. Available operators: +, -, * and /")
+        print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
 
 

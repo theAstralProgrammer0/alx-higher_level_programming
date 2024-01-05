@@ -8,7 +8,7 @@ def main():
     oprd_1 = int(sys.argv[1])
     oprt = sys.argv[2]
     oprd_2 = int(sys.argv[3])
-    ops = ['+', '-', '*', '/']
+    ops = ["+", "-", "*", "/"]
 
     if oprt == ops[0]:
         print("{} + {} = {}".format(oprd_1, oprd_2, add(oprd_1, oprd_2)))

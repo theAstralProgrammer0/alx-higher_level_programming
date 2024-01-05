@@ -3,7 +3,7 @@ def main():
     length = len(sys.argv)
     if not length == 4:
         print("Usage: ./100-my_calculator.py <a> <oprterator> <b>")
-        exit(1)
+        sys.exit(1)
 
     oprd_1 = int(sys.argv[1])
     oprt = sys.argv[2]
@@ -20,7 +20,7 @@ def main():
         print("{} / {} = {}".format(oprd_1, oprd_2, div(oprd_1, oprd_2)))
     else:
         print("Unknown oprterator. Available operators: +, -, * and /")
-        exit(1)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+import sys
+from calculator_1 import add, sub, mul, div
+
+
 def main():
     length = len(sys.argv)
     if not length == 4:
@@ -24,6 +28,4 @@ def main():
 
 
 if __name__ == "__main__":
-    import sys
-    from calculator_1 import add, sub, mul, div
     main()

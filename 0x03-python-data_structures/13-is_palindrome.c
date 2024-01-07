@@ -6,7 +6,7 @@ int is_palindrome(listint_t **head)
 	listint_t *current = NULL;
 
 	if (head == NULL || *head == NULL)
-		return (0);
+		return (1);
 	temp = current = tail = *head;
 	if (temp->next == NULL)
 		return (1);

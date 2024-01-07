@@ -8,6 +8,8 @@ int is_palindrome(listint_t **head)
 	temp = current = tail = *head;
 	if (temp->next == NULL)
 		return (1);
+	if (temp->next->next == NULL && temp->n == temp->next->n)
+		return (1);
 	while (tail->next != NULL)
 		tail = tail->next;
 

@@ -12,6 +12,6 @@ def add_tuple(tuple_a=(), tuple_b=()):
         diff = 2 - len_b
         t_b = tuple_b + (0,) * diff
 
-    for i in range(len(t_a)):
+    for i in range(2):
         result += tuple([t_a[i] + t_b[i]])
     return result

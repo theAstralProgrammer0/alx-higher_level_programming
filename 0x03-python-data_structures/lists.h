@@ -19,6 +19,9 @@ typedef struct listint_s
 size_t print_listint(const listint_t *h);
 listint_t *add_nodeint_end(listint_t **head, const int n);
 void free_listint(listint_t *head);
+int pali_recur(listint_t* current, listint_t* temp, listint_t* tail);
+listint_t* tte(listint_t* tail);
+listint_t* cttp(listint_t* current, listint_t* tail);
 
 int is_palindrome(listint_t **head);
 

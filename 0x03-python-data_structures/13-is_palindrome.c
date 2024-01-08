@@ -2,7 +2,7 @@
 int tte(listint_t** temp, listint_t* tail, int ret)
 {
 	if (tail->next == NULL)
-		return;
+		return (0);
 	tte(temp, tail->next, ret);
 	if ((*temp)->n == tail->n)
 	{
@@ -19,12 +19,12 @@ int is_palindrome(listint_t **head)
 {
 	listint_t **temp = NULL;
 	listint_t *tail = NULL;
-	int ret; 
+	int ret = 0; 
 
 	if (head == NULL || *head == NULL)
 		return (1);
 	tail = *head;
 	temp = head;
-	ret = tte(temp, tail, &ret);
+	ret = tte(temp, tail, ret);
 	return (ret);
 }

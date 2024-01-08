@@ -9,6 +9,8 @@ void tte(listint_t** temp, listint_t* tail, int* ret)
 		*temp = (*temp)->next;
 		*ret = 1;
 	}
+	else
+		*ret = 0;
 }
 
 

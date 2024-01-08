@@ -1,17 +1,15 @@
 #include "lists.h"
-int tte(listint_t** temp, listint_t* tail, int ret)
+#include <stdio.h>
+void tte(listint_t** temp, listint_t* tail, int* ret)
 {
 	if (tail->next == NULL)
-		return (0);
+		return;
 	tte(temp, tail->next, ret);
+	*temp = (*temp)->next;
 	if ((*temp)->n == tail->n)
 	{
-		*temp = (*temp)->next;
-		ret = 1;
+		*ret = 1;
 	}
-	else
-		return (0);
-	return (ret);
 }
 
 
@@ -25,6 +23,6 @@ int is_palindrome(listint_t **head)
 		return (1);
 	tail = *head;
 	temp = head;
-	ret = tte(temp, tail, ret);
+	tte(temp, tail, &ret);
 	return (ret);
 }

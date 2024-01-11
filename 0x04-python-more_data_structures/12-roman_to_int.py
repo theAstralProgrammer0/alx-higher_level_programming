@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def roman_to_int(rom_string):
+def roman_to_int(roman_string):
     rom_dict = {
             '4': {
                 'VIII': 8,
@@ -40,18 +40,19 @@ def roman_to_int(rom_string):
                 'M': 1000
                 }
             }
+    if roman_string == "":
+        return 0
     val_list = []
-    iter_list = []
 
-    while rom_string:
+    while roman_string:
         match_found = False
 
         for digit, sub_dict in sorted(rom_dict.items(),
                                       key=lambda x: int(x[0]), reverse=True):
             for key, value in sub_dict.items():
-                if rom_string.startswith(key):
+                if roman_string.startswith(key):
                     val_list.append(value)
-                    rom_string = rom_string[len(key):]
+                    roman_string = roman_string[len(key):]
                     match_found = True
                     break
 
@@ -59,7 +60,6 @@ def roman_to_int(rom_string):
                 break
 
         if not match_found:
-            iter_list.append(rom_string[-1])
-            rom_string = rom_string[:-1]
+            roman_string = roman_string[:-1]
 
     return sum(val_list)

@@ -40,7 +40,7 @@ def roman_to_int(roman_string):
                 'M': 1000
                 }
             }
-    if roman_string == "":
+    if not isinstance(roman_string, str) or roman_string == None:
         return 0
     val_list = []
 

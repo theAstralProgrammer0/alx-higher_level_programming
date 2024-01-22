@@ -8,6 +8,6 @@ def safe_print_integer(value):
         pass
     else:
         print("{:d}".format(value))
-        printed = not printed
+        printed = True 
     finally:
         return (printed)

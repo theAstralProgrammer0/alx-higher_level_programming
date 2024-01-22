@@ -3,10 +3,11 @@ def safe_print_integer(value):
     printed = False
 
     try:
-        print("{:d}".format(value))
+        value = int(value)
     except (TypeError, ValueError):
         pass
     else:
+        print("{:d}".format(value))
         printed = not printed 
     finally:
         return (printed)

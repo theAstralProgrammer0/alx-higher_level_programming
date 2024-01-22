@@ -16,3 +16,17 @@ has_been_print = safe_print_integer(value)
 if not has_been_print:
     print("{} is not an integer".format(value))
 
+value = [1, 4, 5]
+has_been_print = safe_print_integer(value)
+if not has_been_print:
+    print("{} is not an integer".format(value))
+
+value = (8, "u", 88)
+has_been_print = safe_print_integer(value)
+if not has_been_print:
+    print("{} is not an integer".format(value))
+
+value = {"key":9, "key1":"value_str"}
+has_been_print = safe_print_integer(value)
+if not has_been_print:
+    print("{} is not an integer".format(value))

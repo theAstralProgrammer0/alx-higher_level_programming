@@ -1,5 +1,11 @@
 #!/usr/bin/python3
+"""
+    This is the module containing the Singly Linked List Class and Node Class
+"""
 class Node:
+    """
+        This is the Node Class definition
+    """
     def __init__(self, data, next_node=None):
         self.data = data
         self.next_node = None
@@ -26,10 +32,19 @@ class Node:
 
 
 class SinglyLinkedList:
+    """
+        This is the SinglyLinkedList Class definition
+    """
     def __init__(self):
+        """
+            This is the __init__ Method definition for the singly linked list
+        """
         self.head = None
 
     def sorted_insert(self, value):
+        """
+            This is the sorted_insert Method definition
+        """
         newnode = Node(value)
 
         if not self.head:
@@ -43,6 +58,9 @@ class SinglyLinkedList:
         current.next_node = newnode
 
     def __str__(self):
+        """
+            This is the __str__ Method definition for the singly linked list
+        """
         result = []
         current = self.head
 

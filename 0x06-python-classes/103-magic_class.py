@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import math
 """
     Documentation needs to be fucking loooooooong
 """
@@ -25,3 +26,4 @@ class MagicClass:
     def circumference(self):
         """Circumference Sir CUM ference. WTF????????"""
         return ((2 * math.pi) * self.__radius)
+

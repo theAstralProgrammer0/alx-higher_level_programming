@@ -5,24 +5,21 @@
     for instantiating a square object of a
     certain size.
     The Square raises exceptions when bad
-    values are entered
+    values are entered.
 """
 
 
 class Square:
+    """
+        Square class contains the __init__
+        method that instantiates a square object
+        If a bad value is passed, it raises an
+        appropriate exception.
+    """
     def __init__(self, size=0):
-        self.__size = size
-
-    @property
-    def size(self):
-        return self.__size
-
-    @size.setter
-    def size(self, value):
-        if not isinstance(value, int):
+        if not isinstance(size, int):
             raise TypeError("size is not an integer")
-        elif value < 0:
+        elif size < 0:
             raise ValueError("size must be >= 0")
         else:
-            self.__size = value
-
+            self.__size = size

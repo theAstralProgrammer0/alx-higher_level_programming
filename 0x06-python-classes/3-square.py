@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """
     This module defines a "Square" class.
@@ -34,5 +33,10 @@ class Square:
         self.__size = size
 
     def area(self):
+        """
+            This is the method for calculating the area
+            of a Square object instance of the Square class
+            Args:
+                self (int): The size of the square
+        """
         return self.__size ** 2
-

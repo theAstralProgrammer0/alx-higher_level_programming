@@ -17,7 +17,11 @@ class Square:
         appropriate exception.
     """
     def __init__(self, size=0):
-        if (type(size) != int):
+        """
+            This is the initializing method for the
+            Square class
+        """
+        if not isinstance(size, int):
             raise TypeError("size is not an integer")
         elif size < 0:
             raise ValueError("size must be >= 0")

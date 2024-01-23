@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import math
 """
     Documentation needs to be fucking loooooooong
 """

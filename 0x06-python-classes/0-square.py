@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-    This is the documentation for this module
+   This module creates the most basic form a class (Square)
 """
 
 
 class Square:
     """
-        This is the documentation for the square class
+        This is the documentation for the Square class
     """
     pass

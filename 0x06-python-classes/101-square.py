@@ -41,7 +41,7 @@ class Square:
         """
         self.resultString = ""
         if (self.__size == 0):
-            self.resultString += '\n'
+            self.resultString = ''
         else:
             if self.__position[1] > 0:
                 self.resultString += '\n' * self.__position[1]

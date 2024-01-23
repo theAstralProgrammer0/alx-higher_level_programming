@@ -19,7 +19,7 @@ class Square:
         Square class also contains the area method
         that returns the area of the square
     """
-    resultString = []
+    resultString = ""
 
     def __init__(self, size=0, position=(0, 0)):
         """
@@ -39,19 +39,19 @@ class Square:
             Args:
                 self (object): This instance of the square
         """
-        self.resultString = []
+        self.resultString = ""
         if (self.__size == 0):
-            self.resultString.append('\n')
+            self.resultString += '\n'
         else:
             if self.__position[1] > 0:
-                self.resultString.append('\n' * self.__position[1])
+                self.resultString += '\n' * self.__position[1]
             for i in range(0, self.__size):
                 if self.__position[0] > 0:
-                    self.resultString.append(' ' * self.__position[0])
+                    self.resultString += ' ' * self.__position[0]
                 for j in range(0, self.__size):
-                    self.resultString.append('#')
+                    self.resultString += '#'
                 if i != self.__size - 1:
-                    self.resultString.append('\n')
+                    self.resultString += '\n'
 
     @property
     def size(self):
@@ -106,5 +106,5 @@ class Square:
                     print("#", end="")
                 print('\n', end="")
 
-    def __str__(self):
-        return "".join(self.resultString)
+    def __repr__(self):
+        return self.resultString

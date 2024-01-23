@@ -44,10 +44,10 @@ class Square:
             self.resultString.append('\n')
         else:
             if self.__position[1] > 0:
-                self.resultString.append('\n')
+                self.resultString.append('\n' * self.__position[1])
             for i in range(0, self.__size):
                 if self.__position[0] > 0:
-                    self.resultString.append(' ')
+                    self.resultString.append(' ' * self.__position[0])
                 for j in range(0, self.__size):
                     self.resultString.append('#')
                 if i != self.__size - 1:

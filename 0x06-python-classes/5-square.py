@@ -57,7 +57,7 @@ class Square:
                 self (object): This instance of the square
         """
         if (self.__size == 0):
-            print('\n')
+            print('\n', end="")
         else:
             for i in range(0, self.__size):
                 for j in range(0, self.__size):

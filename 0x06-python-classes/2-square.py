@@ -20,6 +20,9 @@ class Square:
         """
             This is the initializing method for the
             Square class
+
+            Args:
+                size (int): The size of the square
         """
         if not isinstance(size, int):
             raise TypeError("size is not an integer")

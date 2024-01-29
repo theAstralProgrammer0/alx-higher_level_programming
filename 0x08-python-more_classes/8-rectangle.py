@@ -16,7 +16,7 @@ class Rectangle:
     Map = ""
     number_of_instances = 0
     print_symbol = "#"
-    
+
     def __init__(self, width=0, height=0):
         """
             This is the init method of this rectangle class
@@ -58,13 +58,13 @@ class Rectangle:
                 if i != self.__height - 1:
                     self.Map += "\n"
         return self.Map
-    
+
     def __str__(self):
         return self.createMap()
 
     def __repr__(self):
         return str(f"Rectangle({self.__width}, {self.__height})")
-    
+
     def __del__(self):
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
@@ -89,7 +89,6 @@ class Rectangle:
     def height(self):
         return self.__height
 
-
     @width.setter
     def width(self, width):
         if not isinstance(width, int):
@@ -97,7 +96,7 @@ class Rectangle:
         elif width < 0:
             raise ValueError("width must be >= 0")
         self.__width = width
-    
+
     @height.setter
     def height(self, height):
         if not isinstance(height, int):

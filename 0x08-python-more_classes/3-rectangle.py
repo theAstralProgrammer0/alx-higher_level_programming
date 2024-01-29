@@ -14,7 +14,7 @@ class Rectangle:
         for instantiating a rectangle object
     """
     Map = ""
-    
+
     def __init__(self, width=0, height=0):
         """
             This is the init method of this rectangle class
@@ -55,7 +55,7 @@ class Rectangle:
                 if i != self.__height - 1:
                     self.Map += "\n"
         return self.Map
-    
+
     def __str__(self):
         return self.createMap()
 
@@ -67,7 +67,6 @@ class Rectangle:
     def height(self):
         return self.__height
 
-
     @width.setter
     def width(self, width):
         if not isinstance(width, int):
@@ -75,7 +74,7 @@ class Rectangle:
         elif width < 0:
             raise ValueError("width must be >= 0")
         self.__width = width
-    
+
     @height.setter
     def height(self, height):
         if not isinstance(height, int):

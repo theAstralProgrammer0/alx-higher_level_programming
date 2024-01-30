@@ -1,6 +1,17 @@
 #include <Python.h>
 #define PY_UNICODE_TYPE wchar_t
 
+/**
+ * print_python_string - Entry Point
+ *
+ * Description: This is a function that uses CPython API to display information
+ * about a PyStringObject
+ *
+ * @p: PyStringObject pointer
+ *
+ * Return: Nothing
+ */
+
 void print_python_string(PyObject *p)
 {
 	const Py_UNICODE *unicode_str;
@@ -8,7 +19,7 @@ void print_python_string(PyObject *p)
 
 	fflush(stdout);
 	printf("[.] string object info\n");
-	
+
 	if (PyUnicode_Check(p))
 	{
 		unicode_str = PyUnicode_AsUnicodeAndSize(p, &unicode_len);

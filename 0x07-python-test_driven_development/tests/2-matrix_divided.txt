@@ -115,10 +115,11 @@ Usage
     [[12300.0, 45600.0, 78900.0], [101100.0, 131400.0, 161700.0]]
 
 ::
-    >>> matrix = [[1]]
-    >>> div = 1
+
+    >>> matrix = [[]]
+    >>> div = 10
     >>> matrix_divided(matrix, div)
-    [[1.0]]
+    [[]]
 
 ZeroDivisionError
 =================
@@ -172,14 +173,6 @@ Trying to divide an invalid matrix
 
 ::
 
-    >>> matrix = []
-    >>> div = 2
-    >>> matrix_divided(matrix, div)
-    Traceback (most recent call last):
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-::
-
     >>> matrix = "This is not a matrix"
     >>> div = 10
     >>> matrix_divided(matrix, div)
@@ -210,10 +203,10 @@ Trying to divide an invalid matrix
     Traceback (most recent call last):
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 	
-::
 
-    >>> matrix = [[]]
-    >>> div = 10
+::
+    >>> matrix = []
+    >>> div = 1
     >>> matrix_divided(matrix, div)
     Traceback (most recent call last):
     TypeError: matrix must be a matrix (list of lists) of integers/floats

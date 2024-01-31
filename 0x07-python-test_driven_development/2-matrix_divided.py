@@ -22,13 +22,13 @@ def matrix_divided(matrix, div):
         not numbers.
         ZeroDivisionError: If div is zero.
     """
-    if not isinstance(div, int) and not isinstance(div, float):
+    if not (type(div) == int) and not isinstance(div, float):
         raise TypeError("div must be a number")
 
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    if ((not isinstance(matrix, list)) or
+    if (matrix == [] or (not isinstance(matrix, list)) or
             (not all(isinstance(row, list) for row in matrix)) or
             (not all(isinstance(num, int) or isinstance(num, float)
                      for row in matrix for num in row))):

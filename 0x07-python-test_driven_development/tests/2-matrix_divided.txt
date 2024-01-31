@@ -373,3 +373,14 @@ Invalid Divisors
     >>> matrix_divided(matrix, div)
     Traceback (most recent call last):
     TypeError: div must be a number
+
+
+No Input Errors
+===============
+Trying to use the function without passing parameters
+
+::
+
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'

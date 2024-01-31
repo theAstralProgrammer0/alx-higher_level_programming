@@ -1,24 +1,43 @@
 #!/usr/bin/python3
-""" Doc """
+"""
+matrix_divided module:
+This module provides a function to divide each element of a matrix by a number.
+"""
 
-def matrix_divided(matrix=[[1]], div=1):
-    """ Doc """
-    if type(div) is not int and type(div) is not float:
+
+def matrix_divided(matrix, div):
+    """
+    Divides each element of a matrix by a number, ensuring numerical types
+    and handling potential errors.
+
+    Args:
+        matrix: A list of lists representing a matrix.
+        div: The number to divide by.
+
+    Returns:
+        A new matrix with each element divided by div.
+
+    Raises:
+        TypeError: If the matrix is not a list of lists, or if its elements are
+        not numbers.
+        ZeroDivisionError: If div is zero.
+    """
+    if not isinstance(div, int) and not isinstance(div, float):
         raise TypeError("div must be a number")
+
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    if type(matrix) is not list or (len(matrix) == 0) or type(matrix[0]) is not list or (len(matrix[0]) == 0):
-        raise TypeError("matrix must be a matrix (list of lists) of \
-integers/floats")
-    for row in matrix:
-        if type(row) is not list:
-            raise TypeError("matrix must be a matrix (list of lists) of \
-integers/floats")
-        if len(row) != len(matrix[0]):
-            raise TypeError("Each row of the matrix must have the same size")
-        for c in row:
-            if type(c) is not int and type(c) is not float:
-                raise TypeError("matrix must be a matrix (list of lists) of \
-integers/floats")
 
-    return [[round(item / div, 2) for item in row] for row in matrix]
+    if ((not isinstance(matrix, list)) or
+            (not all(isinstance(row, list) for row in matrix)) or
+            (not all(isinstance(num, int) or isinstance(num, float)
+                     for row in matrix for num in row))):
+        raise TypeError("matrix must be a matrix (list of lists)" +
+                        " of integers/floats")
+
+    if not all(len(row) == len(matrix[0]) for row in matrix):
+        raise TypeError("Each row of the matrix must have the same size")
+
+
+    result = [[float(f"{num / div:.2f}") for num in row] for row in matrix]
+    return result

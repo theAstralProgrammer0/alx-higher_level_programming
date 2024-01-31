@@ -365,3 +365,11 @@ Invalid Divisors
     >>> matrix_divided(matrix, div)
     Traceback (most recent call last):
     TypeError: div must be a number
+
+::
+
+    >>> matrix = None
+    >>> div = None
+    >>> matrix_divided(matrix, div)
+    Traceback (most recent call last):
+    TypeError: div must be a number

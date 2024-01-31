@@ -114,6 +114,12 @@ Usage
     >>> matrix_divided(matrix, div)
     [[12300.0, 45600.0, 78900.0], [101100.0, 131400.0, 161700.0]]
 
+::
+    >>> matrix = [[1]]
+    >>> div = 1
+    >>> matrix_divided(matrix, div)
+    [[1.0]]
+
 ZeroDivisionError
 =================
 Trying to divide by zero

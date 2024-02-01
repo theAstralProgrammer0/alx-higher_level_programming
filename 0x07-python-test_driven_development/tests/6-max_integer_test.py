@@ -47,10 +47,10 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(maxint, 98)
 
     def test_list_of_complex_numbers(self):
-        self.assertRaises(TypeError, maxint, [2j, 9j, 8, 89j])
+        self.assertRaises(TypeError, max_integer, [2j, 9j, 8, 89j])
 
     def test_list_and_mixed(self):
-        self.assertRaises(TypeError, maxint, [3.142, [1, 2, 0], 98, "Dark"])
+        self.assertRaises(TypeError, max_integer, [3.142, [1, 2, 0], 98, "Dark"])
 
 
 if __name__ == "__main__":

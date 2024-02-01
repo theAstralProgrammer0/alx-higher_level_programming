@@ -1,40 +1,53 @@
 #!/usr/bin/python3
-"""Doc"""
+"""
+text_indentation module:
+This module provides a function to indent text after specific punctuation
+marks.
+"""
+
+
 def text_indentation(text):
-  """Indents text based on punctuation and newlines."""
+    """
+    Indents text after periods, question marks, and colons.
+    Prints the indented text
 
-  if not isinstance(text, str):
-    raise TypeError("text must be a string")
+    Args:
+        text: The text to be indented.
 
-  new_text = ""
-  leading_space = True
-  ender = ""
+    Returns:
+        Nothing
+    """
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
 
-  for i in range(len(text)):
-    if (i == len(text) - 1 and
-        (text[i] not in '.?:')):
-      ender = '\n'
+    new_text = ""
+    leadingSpace = True
+    ender = ""
 
-    if text[i] == '\n':
-      new_text += text[i]
-      leading_space = True
-      continue
-
-    if text[i] == ' ':
-      if i == len(text) - 1:
-        break
-      elif text[i + 1] == '\n':
-        i += 1
-        continue
-      elif leading_space:
-        continue
-
-    leading_space = False
-
-    if text[i] in '.?:':
-      new_text += text[i] + "\n\n"
-    else:
-      new_text += text[i]
-
-  print(new_text.rstrip(), end=ender)  # Remove trailing newline
-
+    for i in range(len(text)):
+        if (i == len(text) - 1 and
+            (text[i] != '.' and 
+             text[i] != ':' and
+             text[i] != '?' and
+             text[i] != ' ')):
+            ender = '\n'
+        if text[i] == '\n':
+            new_text += text[i]
+            leadingSpace = True
+            continue
+        if text[i] == ' ':
+            if i == len(text) - 1:
+                break
+            elif text[i + 1] == '\n':
+                i += 1
+                continue
+            elif leadingSpace:
+                continue
+        leadingSpace = False
+        if text[i] != ':' and text[i] != '.' and text[i] != '?':
+            new_text += text[i]
+            continue
+        else:
+            new_text += text[i] + "\n\n"
+            leadingSpace = True
+    print(new_text, end=ender)

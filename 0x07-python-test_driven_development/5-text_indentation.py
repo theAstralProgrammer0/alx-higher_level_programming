@@ -17,17 +17,6 @@ def text_indentation(text):
     Returns:
         Nothing
     """
-    if not isinstance(text, str):
-        raise TypeError("text must be a string")
-    """
-    print(text.replace('.', ".\n\n")
-              .replace('?', "?\n\n")
-              .replace(':', ":\n\n")
-              .replace('. ', ".\n\n")
-              .replace('? ', "?\n\n")
-              .replace(': ', ":\n\n"), end="")
-    """
-
     new_text = ""
     leadingSpace = True
     ender = ""
@@ -47,7 +36,6 @@ def text_indentation(text):
             if i == len(text) - 1:
                 break
             elif text[i + 1] == '\n':
-                new_text += ''
                 i += 1
                 continue
             elif leadingSpace:

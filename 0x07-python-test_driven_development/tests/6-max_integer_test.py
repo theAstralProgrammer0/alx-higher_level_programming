@@ -9,6 +9,14 @@ class TestMaxInteger(unittest.TestCase):
     def test_simple_strings(self):
         maxint = max_integer("This string")
         self.assertEqual(maxint, 't')
+    
+    def test_simple_strings(self):
+        maxint = max_integer([100, 1, 6])
+        self.assertEqual(maxint, 100)
+
+    def test_simple_strings(self):
+        maxint = max_integer([1, 6, 100])
+        self.assertEqual(maxint, 100)
 
     def test_list_of_strings(self):
         maxint = max_integer(["Holberton", "School", "98"])

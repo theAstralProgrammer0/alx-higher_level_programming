@@ -22,15 +22,8 @@ def text_indentation(text):
 
     new_text = ""
     leadingSpace = True
-    ender = ""
 
     for i in range(len(text)):
-        if (i == len(text) - 1 and
-            (text[i] != '.' and 
-             text[i] != ':' and
-             text[i] != '?' and
-             text[i] != ' ')):
-            ender = '\n'
         if text[i] == '\n':
             new_text += text[i]
             leadingSpace = True
@@ -50,4 +43,4 @@ def text_indentation(text):
         else:
             new_text += text[i] + "\n\n"
             leadingSpace = True
-    print(new_text, end=ender)
+    print(new_text, end="")

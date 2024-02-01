@@ -17,6 +17,9 @@ def text_indentation(text):
     Returns:
         Nothing
     """
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+
     new_text = ""
     leadingSpace = True
     ender = ""

@@ -11,7 +11,7 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(maxint, 't')
     
     def test_simple_strings(self):
-        maxint = max_integer([9, 1, 6])
+        maxint = max_integer((12563, 0, 8.45, "rew"))
         self.assertEqual(maxint, 9)
 
     def test_simple_strings(self):

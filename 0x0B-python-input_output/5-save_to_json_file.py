@@ -12,8 +12,8 @@ def save_to_json_file(my_obj, filename):
     try:
         text = json.dumps(my_obj, ensure_ascii=False)
     except Exception:
-        with open(filename, mode="w", encoding="utf-8") as f:
+        with open(filename, mode="a+", encoding="utf-8") as f:
             f.write("")
     else:
-        with open(filename, mode="w") as myFile:
+        with open(filename, mode="a+") as myFile:
             myFile.write(text)

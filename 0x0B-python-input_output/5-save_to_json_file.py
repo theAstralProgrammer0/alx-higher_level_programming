@@ -10,7 +10,7 @@ def save_to_json_file(my_obj, filename=""):
        representation:
     """
     text = json.dump(my_obj, ensure_ascii=False)
-    with open(filename, mode="a+") as myFile:
+    with open(filename, mode="w") as myFile:
         if (text):
             myFile.write(text)
         else:

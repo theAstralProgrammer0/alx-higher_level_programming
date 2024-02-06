@@ -4,5 +4,5 @@
 
 def read_file(filename=""):
     """This function perfroms the module's function"""
-    with open("my_file_0.txt", mode="r", encoding="utf-8") as myFile:
+    with open("my_file_0.txt", encoding="utf-8") as myFile:
         print(myFile.read(), end="")

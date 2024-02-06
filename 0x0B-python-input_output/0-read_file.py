@@ -1,0 +1,5 @@
+#!/usr/bin/python3
+"""This module reads the content of a file named @filename"""
+def read_file(filename=""):
+    with open("my_file_0.txt", mode="r", encoding="utf-8") as myFile:
+        print(myFile.read())

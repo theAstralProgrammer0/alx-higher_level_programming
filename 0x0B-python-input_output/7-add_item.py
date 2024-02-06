@@ -4,11 +4,13 @@ import sys
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-new_file = "add_item.json"
+json_file = "add_item.json"
 args = sys.argv[1:]
 
-with open(new_file, mode="r") as myFile:
-    if not myFile.read():
-        save_to_json_file(new_obj, new_file)
-loaded = load_from_json_file(new_file)
-new_obj = list(loaded) + args
+try:
+    with open(json_file, mode="r") as myFile:
+        myFile.read()
+except FileNotFoundError:
+    save_to_json_file(args, json_file)
+else:
+    save_to_json_file(load_from_json_file(json_file) + args, json_file)

@@ -6,11 +6,11 @@ import json
 
 
 def save_to_json_file(my_obj, filename):
-    """This is a function  that writes an Object to a text file, using a JSON
+    """This is a function that writes an Object to a text file, using a JSON
        representation:
     """
     try:
-        text = json.dumps(my_obj)
+        text = json.dumps(my_obj, ensure_ascii=False)
     except Exception:
         with open(filename, mode="w", encoding="utf-8") as f:
             f.write("")

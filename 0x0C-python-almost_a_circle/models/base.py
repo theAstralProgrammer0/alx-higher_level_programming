@@ -7,6 +7,7 @@
 import json
 import csv
 
+
 class Base:
     """This is the 'Base' class"""
     __nb_objects = 0
@@ -61,6 +62,8 @@ class Base:
             dict_objs = cls.from_json_string(json_string)
             instance_list = [cls.create(**dic) for dic in dict_objs]
             return instance_list
+
+
 """
     @classmethod
     def save_to_file_csv(cls, list_objs):

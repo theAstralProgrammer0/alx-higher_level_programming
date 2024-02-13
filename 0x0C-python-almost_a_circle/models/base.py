@@ -20,6 +20,16 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
+    @classmethod
+    def create(cls, **dictionary):
+        """This is a method that creates a new instance from key word args"""
+        if cls.__name__ == "Rectangle":
+            dummy = cls(22, 22)
+        else:
+            dummy = cls(22)
+        dummy.update(**dictionary)
+        return dummy
+
     @staticmethod
     def to_json_string(list_dictionaries=[]):
         """This is the serialization function"""
@@ -39,29 +49,19 @@ class Base:
         """This is the file i/o handling function to save the json string from
            a list of python dictionaries
         """
-        with open("{}.json".format(cls.__name__), "w") as f:
+        with open("{}.json".format(cls.__name__), "w") as jsonfile:
             if list_objs is None:
-                f.write("[]")
+                jsonfile.write("[]")
             else:
                 new_list_objs = [obj.to_dictionary() for obj in list_objs]
-                f.write(cls.to_json_string(new_list_objs))
-
-    @classmethod
-    def create(cls, **dictionary):
-        """This is a method that creates a new instance from key word args"""
-        if cls.__name__ == "Rectangle":
-            dummy = cls(22, 22)
-        else:
-            dummy = cls(22)
-        dummy.update(**dictionary)
-        return dummy
+                jsonfile.write(cls.to_json_string(new_list_objs))
 
     @classmethod
     def load_from_file(cls):
         """This is a method that deserializes JSON object to a Python object"""
         try:
-            with open("{}.json".format(cls.__name__), "r") as f:
-                json_string = f.read()
+            with open("{}.json".format(cls.__name__), "r") as jsonfile:
+                json_string = jsonfile.read()
         except Exception:
             return []
         else:
@@ -69,12 +69,33 @@ class Base:
             instance_list = [cls.create(**dic) for dic in dict_objs]
             return instance_list
 
-
-"""
     @classmethod
     def save_to_file_csv(cls, list_objs):
-
+        """This is the csv equivalent"""
+        with open("{}.csv".format(cls.__name__), "w", newline="") as csvfile:
+            if list_objs is None or list_objs == []:
+                csvfile.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                elif cls.__name__ == "Square":
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
-"""
+        """This is the csv equivalent"""
+        try:
+            with open("{}.csv".format(cls.__name__), "r", newline="") as csvf:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(csvf, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.items())
+                              for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
+        except Exception:
+            return []

@@ -7,7 +7,7 @@ class Square(Rectangle):
     """This is the 'Square' class"""
     def __init__(self, size, x=0, y=0, id=None):
         super().__init__(size, size, x, y, id)
-        self.__size = size
+        self.size = size
 
     def __str__(self):
         """This is the str magic method for 'print' statements to work with"""
@@ -42,5 +42,8 @@ class Square(Rectangle):
         if type(size) is int:
             self.width = size
             self.height = size
+            self.__size = size
         else:
             raise TypeError("width must be an integer")
+        if width <= 0:
+            raise ValueError("width must be > 0")

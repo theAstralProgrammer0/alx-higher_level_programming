@@ -33,17 +33,16 @@ class Base:
         return json.loads(json_string)
 
     @classmethod
-    def save_to_file(cls, list_objs=[]):
+    def save_to_file(cls, list_objs):
         """This is the file i/o handling function to save the json string from
            a list of python dictionaries
         """
-        new_list_objs = [obj.to_dictionary() for obj in list_objs]
-        text = cls.to_json_string(new_list_objs)
         with open("{}.json".format(cls.__name__), "w") as f:
             if list_objs is None:
                 f.write("[]")
             else:
-                f.write(text)
+                new_list_objs = [obj.to_dictionary() for obj in list_objs]
+                f.write(cls.to_json_string(new_list_objs))
 
     @classmethod
     def create(cls, **dictionary):

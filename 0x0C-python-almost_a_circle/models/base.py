@@ -49,7 +49,10 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """This is a method that creates a new instance from key word args"""
-        dummy = cls(22, 22)
+        if cls.__name__ == "Rectangle":
+            dummy = cls(22, 22)
+        else:
+            dummy = cls(22)
         dummy.update(**dictionary)
         return dummy
 

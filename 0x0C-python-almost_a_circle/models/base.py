@@ -49,9 +49,10 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """This is a method that creates a new instance from key word args"""
-        dummy = cls(22, 22, 22, 22)
-        dummy.update(**dictionary)
-        return dummy
+        if dictionary: 
+            dummy = cls(22, 22, 22, 22)
+            dummy.update(**dictionary)
+            return dummy
 
     @classmethod
     def load_from_file(cls):

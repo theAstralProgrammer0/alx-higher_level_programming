@@ -40,10 +40,10 @@ class Base:
         new_list_objs = [obj.to_dictionary() for obj in list_objs]
         text = cls.to_json_string(new_list_objs)
         with open("{}.json".format(cls.__name__), "w") as f:
-            if list_objs:
-                f.write(text)
-            else:
+            if not list_objs:
                 f.write('[]')
+            else:
+                f.write(text)
 
     @classmethod
     def create(cls, **dictionary):

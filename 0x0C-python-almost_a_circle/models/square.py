@@ -34,16 +34,42 @@ class Square(Rectangle):
         return sqr_dict
 
     @property
+    def width(self):
+        return self.__width
+
+    @width.setter
+    def width(self, width):
+        if type(width) is int:
+            self.__width = width
+        else:
+            raise TypeError("width must be an integer")
+        if width <= 0:
+            raise ValueError("width must be > 0")
+
+    @property
+    def height(self):
+        return self.__height
+
+    @height.setter
+    def height(self, height):
+        if type(height) is int:
+            self.__height = height
+        else:
+            raise TypeError("height must be an integer")
+        if height <= 0:
+            raise ValueError("height must be > 0")
+
+    @property
     def size(self):
         return self.__size
 
     @size.setter
     def size(self, size):
-        if size <= 0:
-            raise ValueError("width must be > 0")
         if type(size) is int:
             self.width = size
             self.height = size
             self.__size = size
         else:
             raise TypeError("width must be an integer")
+        if size <= 0:
+            raise ValueError("width must be > 0")

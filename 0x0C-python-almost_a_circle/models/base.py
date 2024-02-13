@@ -41,7 +41,7 @@ class Base:
         text = cls.to_json_string(new_list_objs)
         with open("{}.json".format(cls.__name__), "w") as f:
             if not list_objs:
-                f.write('[]')
+                f.write("[]")
             else:
                 f.write(text)
 

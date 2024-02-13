@@ -38,9 +38,9 @@ class Base:
            a list of python dictionaries
         """
         new_list_objs = [obj.to_dictionary() for obj in list_objs]
-        text = Base.to_json_string(new_list_objs)
+        text = cls.to_json_string(new_list_objs)
         with open("{}.json".format(cls.__name__), "w") as f:
-            if not list_objs:
+            if list_objs is None:
                 f.write("[]")
             else:
                 f.write(text)

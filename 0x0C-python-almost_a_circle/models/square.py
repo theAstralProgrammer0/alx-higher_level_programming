@@ -23,6 +23,8 @@ class Square(Rectangle):
                 setattr(self, key, value)
         else:
             for i, arg in enumerate(args):
+                if i > 3:
+                    break
                 setattr(self, str(attr_list[i]), arg)
 
     def to_dictionary(self):

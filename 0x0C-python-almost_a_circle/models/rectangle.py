@@ -39,6 +39,8 @@ class Rectangle(Base):
         attr_list = ["id", "width", "height", "x", "y"]
         if args:
             for i, arg in enumerate(args):
+                if i > 4:
+                    break
                 setattr(self, str(attr_list[i]), arg)
         else:
             for key, value in kwargs.items():

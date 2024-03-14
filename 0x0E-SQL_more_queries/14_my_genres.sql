@@ -8,6 +8,6 @@
 -- You can use only one SELECT statement
 -- The database name will be passed as an argument of the mysql command
 SELECT DISTINCT tv_genres.name
-FROM tv_genres LEFT JOIN tv_shows
+FROM tv_genres JOIN tv_shows
 WHERE tv_shows.title = 'Dexter' 
 ORDER BY tv_genres.name ASC
